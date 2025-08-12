@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # Main MOCards application
+  mocards:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mocards.rule=Host(`mocards.local`)"
+      - "traefik.http.services.mocards.loadbalancer.server.port=80"
+
+  # Development database (optional for future use)
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: mocards_dev
+      POSTGRES_USER: mocards
+      POSTGRES_PASSWORD: mocards_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    restart: unless-stopped
+    profiles:
+      - development
+      - full
+
+  # Redis for session storage (optional for future use)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    profiles:
+      - development
+      - full
+
+  # Reverse proxy (optional)
+  traefik:
+    image: traefik:v3.0
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    profiles:
+      - proxy
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  default:
+    name: mocards-network

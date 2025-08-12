@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# SEO optimizations
+Sitemap: https://mocards.app/sitemap.xml
+
+# Block sensitive areas (if any)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Allow common assets
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+Allow: *.woff
+Allow: *.woff2
+Allow: *.ttf

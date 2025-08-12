@@ -1,0 +1,57 @@
+{
+  "name": "MOCards - Digital Dental Loyalty Card",
+  "short_name": "MOCards",
+  "description": "Your digital dental loyalty card system. Track benefits, earn points, and maintain oral health.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "orientation": "portrait-primary",
+  "categories": ["health", "medical", "productivity"],
+  "lang": "en-US",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/webstorm-icon-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Card",
+      "short_name": "Card",
+      "description": "View your digital loyalty card",
+      "url": "/?view=card",
+      "icons": [
+        {
+          "src": "/webstorm-icon-logo.svg",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Benefits",
+      "short_name": "Benefits",
+      "description": "Track your dental benefits",
+      "url": "/?view=benefits",
+      "icons": [
+        {
+          "src": "/webstorm-icon-logo.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# Netlify Redirects for SPA
+
+# Handle client-side routing (SPA)
+/*    /index.html   200
+
+# API redirects (if needed in the future)
+/api/*  https://api.mocards.app/api/:splat  200
+
+# Legacy redirects (examples)
+/old-path/*  /new-path/:splat  301
+/dashboard   /patient         301
+
+# Force HTTPS in production
+http://mocards.app/*  https://mocards.app/:splat  301!
+http://www.mocards.app/*  https://mocards.app/:splat  301!
+https://www.mocards.app/*  https://mocards.app/:splat  301!
