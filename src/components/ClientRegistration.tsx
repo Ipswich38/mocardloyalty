@@ -149,7 +149,22 @@ export function ClientRegistrationForm({ onRegister, onBackToLogin, isLoading = 
         </div>
         
         {/* Footer */}
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center space-y-3">
+          <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
+            <button 
+              onClick={() => window.open('/privacy', '_blank')}
+              className="hover:text-blue-600 transition-colors"
+            >
+              Privacy Policy
+            </button>
+            <span>•</span>
+            <button 
+              onClick={() => window.open('/terms', '_blank')}
+              className="hover:text-blue-600 transition-colors"
+            >
+              Terms of Service
+            </button>
+          </div>
           <div className="flex items-center justify-center gap-2">
             <span className="text-xs text-gray-600">Developed & Designed by</span>
             <span className="text-xs font-semibold text-blue-600">kreativloops</span>

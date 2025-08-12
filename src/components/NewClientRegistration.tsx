@@ -371,9 +371,26 @@ export function NewClientRegistrationForm({
                     <div className="flex items-start gap-3">
                       <Shield className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-white text-sm font-medium mb-1">Account Security</p>
+                        <p className="text-white text-sm font-medium mb-1">Account Security & Privacy</p>
                         <p className="text-slate-400 text-xs leading-relaxed">
                           Your registration will be reviewed by our admin team. You'll receive an email notification once approved.
+                        </p>
+                        <p className="text-slate-400 text-xs leading-relaxed mt-2">
+                          By registering, you agree to our{' '}
+                          <button 
+                            onClick={() => window.open('/terms', '_blank')}
+                            className="text-blue-400 hover:text-blue-300 underline"
+                          >
+                            Terms of Service
+                          </button>
+                          {' '}and{' '}
+                          <button 
+                            onClick={() => window.open('/privacy', '_blank')}
+                            className="text-blue-400 hover:text-blue-300 underline"
+                          >
+                            Privacy Policy
+                          </button>
+                          .
                         </p>
                       </div>
                     </div>
@@ -418,7 +435,22 @@ export function NewClientRegistrationForm({
         </Card>
         
         {/* Footer */}
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-y-3">
+          <div className="flex items-center justify-center gap-4 text-xs text-slate-500">
+            <button 
+              onClick={() => window.open('/privacy', '_blank')}
+              className="hover:text-purple-400 transition-colors"
+            >
+              Privacy Policy
+            </button>
+            <span>•</span>
+            <button 
+              onClick={() => window.open('/terms', '_blank')}
+              className="hover:text-purple-400 transition-colors"
+            >
+              Terms of Service
+            </button>
+          </div>
           <div className="flex items-center justify-center gap-2">
             <span className="text-xs text-slate-600">Developed & Designed by</span>
             <span className="text-xs font-semibold text-purple-400">kreativloops</span>

@@ -509,6 +509,22 @@ export function PatientDashboard({ patient, onLogout }: PatientDashboardProps) {
               <span>© {new Date().getFullYear()}</span>
             </div>
             
+            <div className="flex items-center justify-center gap-4 text-xs text-slate-500 mt-2">
+              <button 
+                onClick={() => window.open('/privacy', '_blank')}
+                className="hover:text-blue-400 transition-colors"
+              >
+                Privacy Policy
+              </button>
+              <span>•</span>
+              <button 
+                onClick={() => window.open('/terms', '_blank')}
+                className="hover:text-blue-400 transition-colors"
+              >
+                Terms of Service
+              </button>
+            </div>
+            
             <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-slate-700/50">
               <span className="text-xs text-slate-600">Developed & Designed by</span>
               <span className="text-xs font-semibold text-blue-400">kreativloops</span>

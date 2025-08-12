@@ -577,7 +577,22 @@ export function DentistDashboard({ dentist, onLogout }: DentistDashboardProps) {
 
       {/* Footer */}
       <footer className="bg-slate-800/50 border-t border-white/10 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-2">
+          <div className="flex items-center justify-center gap-4 text-xs text-slate-500">
+            <button 
+              onClick={() => window.open('/privacy', '_blank')}
+              className="hover:text-green-400 transition-colors"
+            >
+              Privacy Policy
+            </button>
+            <span>•</span>
+            <button 
+              onClick={() => window.open('/terms', '_blank')}
+              className="hover:text-green-400 transition-colors"
+            >
+              Terms of Service
+            </button>
+          </div>
           <div className="flex items-center justify-center gap-2">
             <span className="text-xs text-slate-600">Developed & Designed by</span>
             <span className="text-xs font-semibold text-green-400">kreativloops</span>
